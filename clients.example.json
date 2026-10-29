@@ -1,0 +1,27 @@
+{
+  "clients": [
+    {
+      "name": "Cliente A",
+      "slug": "cliente_a",
+      "enabled": true,
+      "dashboards": [
+        {"title": "Dashboard do Cliente A",
+         "url": "https://zabbix.exemplo.com.br/zabbix/zabbix.php?action=dashboard.view&dashboardid=12"}
+      ],
+      "chart_hosts": [
+        {"title": "Servidor do Cliente A",
+         "url": "https://zabbix.exemplo.com.br/zabbix/zabbix.php?action=charts.view&filter_hostids%5B0%5D=10084&filter_show=1&filter_set=1"}
+      ],
+      "mail_to": ["contato@clientea.exemplo.com.br"],
+      "mail_cc": [],
+      "subject": "Relatório semanal - Cliente A (opcional, sobrescreve MAIL_SUBJECT)"
+    },
+    {
+      "name": "Cliente B",
+      "enabled": true,
+      "dashboards": [{"title": "Dashboard do Cliente B", "id": 34}],
+      "chart_hosts": [{"title": "Host do Cliente B", "id": 10090}],
+      "mail_to": ["ti@clienteb.exemplo.com.br", "noc@clienteb.exemplo.com.br"]
+    }
+  ]
+}

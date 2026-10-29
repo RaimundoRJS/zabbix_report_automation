@@ -1,0 +1,8 @@
+.env
+clients.json
+venv/
+__pycache__/
+output/
+output_root_old/
+logs/
+*.pdf
