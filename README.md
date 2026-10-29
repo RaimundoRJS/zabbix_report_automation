@@ -91,17 +91,17 @@ nano clients.json      # modelo: clients.example.json
 {
   "clients": [
     {
-      "name": "Atlasnet",
-      "slug": "atlasnet",
+      "name": "ClientTeste",
+      "slug": "ClientTeste",
       "enabled": true,
       "dashboards": [
-        {"title": "Relatório Atlasnet",
-         "url": "https://zabbix.exemplo.com.br/zabbix/zabbix.php?action=dashboard.view&dashboardid=336"}
+        {"title": "Relatório ClientTeste",
+         "url": "https://zabbix.exemplo.com.br/zabbix/zabbix.php?action=dashboard.view&dashboardid=000"}
       ],
       "chart_hosts": [
-        {"title": "Servidor Atlasnet", "id": 14127}
+        {"title": "Servidor ClientTeste", "id": 000000}
       ],
-      "mail_to": ["engenharia@atlasnet.net.br"],
+      "mail_to": ["contato@exemplo.com.br"],
       "mail_cc": []
     }
   ]
@@ -127,10 +127,10 @@ O cliente precisa ter ao menos um item em `dashboards` ou `chart_hosts`. O perí
 3. Acrescente um bloco em `clients.json` (copie um existente):
    ```json
    {
-     "name": "Audicom",
-     "dashboards": [{"title": "Relatório Audicom", "id": 123}],
-     "chart_hosts": [{"title": "Servidor Audicom", "id": 456}],
-     "mail_to": ["contato@audicom.exemplo.com.br"]
+     "name": "ClientTeste2",
+     "dashboards": [{"title": "Relatório ClientTeste2", "id": 123}],
+     "chart_hosts": [{"title": "Servidor ClientTeste2", "id": 123}],
+     "mail_to": ["contato@exemplo.com.br"]
    }
    ```
 4. Teste só esse cliente, enviando para você (veja abaixo).
