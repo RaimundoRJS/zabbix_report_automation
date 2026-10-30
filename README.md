@@ -1,6 +1,6 @@
 # Zabbix Report Automation
 
-Automação em Python que captura dashboards e gráficos do **Zabbix**, gera um **relatório em PDF por cliente** e o envia por **e-mail** para cada empresa parceira, todo domingo às 23:50.
+Automação em Python que captura dashboards e gráficos do **Zabbix**, gera um **relatório em PDF por cliente** e o envia por **e-mail** para cada empresa parceira, toda segunda às 09:00.
 
 Não exige plugins nem alterações no servidor Zabbix: um navegador headless (Playwright/Chromium) acessa a interface web, o PDF é montado com `fpdf2` e o envio usa `smtplib`.
 
@@ -43,7 +43,7 @@ O `install.sh` (pode ser executado várias vezes):
 3. cria o `venv` e instala o `requirements.txt`;
 4. executa `playwright install chromium --with-deps` (se rodar sem root, instala as libs via `sudo` e o navegador para o seu usuário);
 5. cria `.env` e `clients.json` a partir dos exemplos (com `chmod 600`), além de `logs/` e `output/`;
-6. cria no crontab **todo domingo às 23:50**, gravando a saída em `logs/cron.log`.
+6. cria no crontab **todo segunda às 09:00**, gravando a saída em `logs/cron.log`.
 
 Opções: `--no-cron` (não agenda) e `--no-deps` (não usa apt/sudo).
 
@@ -153,10 +153,10 @@ Confira o PDF em `output/AAAA-MM-DD/`, o e-mail recebido e o código de saída (
 O `install.sh` cria a entrada abaixo. Para criar manualmente, `crontab -e` (ajuste o caminho):
 
 ```cron
-50 23 * * 0 cd /opt/zabbix_report_automation && /opt/zabbix_report_automation/venv/bin/python /opt/zabbix_report_automation/zabbix_report_agent.py >> /opt/zabbix_report_automation/logs/cron.log 2>&1
+0 9 * * 1 cd /opt/zabbix_report_automation && /opt/zabbix_report_automation/venv/bin/python /opt/zabbix_report_automation/zabbix_report_agent.py >> /opt/zabbix_report_automation/logs/cron.log 2>&1
 ```
 
-Campos: minuto `50`, hora `23`, qualquer dia do mês, qualquer mês, dia da semana `0` (domingo). Confira com `crontab -l`. A máquina precisa estar ligada, com o serviço `cron` ativo, e no fuso correto (`timedatectl set-timezone America/Sao_Paulo`).
+Campos: minuto `0`, hora `9`, qualquer dia do mês, qualquer mês, dia da semana `1` (Segunda). Confira com `crontab -l`. A máquina precisa estar ligada, com o serviço `cron` ativo, e no fuso correto (`timedatectl set-timezone America/Sao_Paulo`).
 
 ## Logs
 
