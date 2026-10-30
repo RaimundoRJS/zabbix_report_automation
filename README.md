@@ -95,7 +95,7 @@ nano clients.json      # modelo: clients.example.json
       "slug": "client",
       "enabled": true,
       "dashboards": [
-        {"title": "Relatório Atlasnet",
+        {"title": "Relatório Client",
          "url": "https://zabbix.exemplo.com.br/zabbix/zabbix.php?action=dashboard.view&dashboardid=001"}
       ],
       "chart_hosts": [
@@ -130,7 +130,7 @@ O cliente precisa ter ao menos um item em `dashboards` ou `chart_hosts`. O perí
      "name": "Clinet2",
      "dashboards": [{"title": "Relatório Client2", "id": 123}],
      "chart_hosts": [{"title": "Servidor Client2", "id": 456}],
-     "mail_to": ["clien@example.com.br"]
+     "mail_to": ["client2@example.com.br"]
    }
    ```
 4. Teste só esse cliente, enviando para você (veja abaixo).
