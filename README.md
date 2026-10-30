@@ -43,7 +43,7 @@ O `install.sh` (pode ser executado várias vezes):
 3. cria o `venv` e instala o `requirements.txt`;
 4. executa `playwright install chromium --with-deps` (se rodar sem root, instala as libs via `sudo` e o navegador para o seu usuário);
 5. cria `.env` e `clients.json` a partir dos exemplos (com `chmod 600`), além de `logs/` e `output/`;
-6. cria no crontab **todo segunda às 09:00**, gravando a saída em `logs/cron.log`.
+6. cria no crontab **toda segunda às 09:00**, gravando a saída em `logs/cron.log`.
 
 Opções: `--no-cron` (não agenda) e `--no-deps` (não usa apt/sudo).
 
@@ -192,14 +192,3 @@ Os seletores de login (`#name`, `#password`, `#enter`) são os do Zabbix 5.x–7
 - **Nunca coloque credenciais reais no `.env.example`.** Ele é o único arquivo de configuração versionado.
 - Use um usuário Zabbix de leitura exclusivo e uma conta SMTP dedicada.
 - Não desative `ZABBIX_VERIFY_TLS`/`SMTP_VERIFY_TLS` em produção.
-
-## Publicando no GitHub
-
-```bash
-git init && git add .
-git status          # confirme que .env, clients.json, venv/, logs/ e output/ NÃO aparecem
-git commit -m "Zabbix Report Automation"
-git branch -M main
-git remote add origin git@github.com:SEU_USUARIO/zabbix_report_automation.git
-git push -u origin main
-```
